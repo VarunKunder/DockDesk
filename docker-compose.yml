@@ -1,0 +1,36 @@
+# docker-compose.yml
+
+version: "3.8"
+
+services:
+  # This is your Node.js backend service
+  backend:
+    build: ./backend # Tells Docker to build the image from the 'backend' folder
+    container_name: homelab-dashboard-backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001" # Exposes the backend API on port 3001
+    environment:
+      # These variables tell your app where to find things *inside* the container.
+      - FILE_BROWSER_ROOT=/host/media
+      - SPOTDL_OUTPUT_PATH=/host/music
+      - STATS_DISK_PATH=/host/media
+    volumes:
+      # --- This is the most important part ---
+      # It creates secure, read-only portals from your server into the container.
+
+      # For Docker Status
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+      # For System Stats (CPU, RAM, Temp)
+      - /proc:/proc:ro
+      - /sys:/sys:ro
+      - /etc/os-release:/etc/os-release:ro
+
+      # For File Browser and Disk Stats
+      # Maps your server's /mnt/hdd to the container's /host/media folder
+      - /mnt/hdd:/host/media:ro
+
+      # For Music Player and SpotDL Downloads
+      # Maps your server's music folder to the container's /host/music folder
+      - /mnt/hdd/docker/navidrome/music:/host/music

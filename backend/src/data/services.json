@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Portainer",
+    "description": "DockerPortrainer",
+    "url": "http://100.120.33.20:9000/",
+    "icon": "Server",
+    "category": "Server",
+    "status": "online"
+  },
+  {
+    "name": "Jellyfin",
+    "description": "Movie Website",
+    "url": "http://100.120.33.20:8096/",
+    "icon": "Server",
+    "category": "Movie",
+    "status": "online"
+  },
+  {
+    "name": "Navidrome",
+    "description": "Music Service",
+    "url": "http://100.120.33.20:4533/app",
+    "icon": "Music",
+    "category": "Music",
+    "status": "online"
+  },
+  {
+    "name": "n8n ",
+    "description": "Ai Assistance",
+    "url": "http://100.120.33.20:5678/",
+    "icon": "Monitor",
+    "category": "Ai Assistance",
+    "status": "online"
+  }
+]
