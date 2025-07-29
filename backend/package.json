@@ -4,7 +4,7 @@
   "description": "Backend for Homelab Dashboard",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "ts-node-dev -r dotenv/config --respawn --transpile-only src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
@@ -12,6 +12,7 @@
     "axios": "^1.7.2",
     "cors": "^2.8.5",
     "dockerode": "^4.0.2",
+    "dotenv": "^17.2.1",
     "express": "^4.19.2",
     "socket.io": "^4.7.5",
     "systeminformation": "^5.22.11"
